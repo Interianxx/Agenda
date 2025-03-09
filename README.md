@@ -27,3 +27,9 @@ git clone https://github.com/Interianxx/Agenda.git
 ```bash
 cd Agenda
 ```
+
+### 3️⃣ Instalar las dependencias con Composer
+
+```bash
+composer install
+```
