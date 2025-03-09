@@ -167,49 +167,64 @@
         calendar.render();
 
         document.getElementById('btnGuardar').addEventListener('click', function () {
-            const datos = new FormData(formulario);
+    const datos = new FormData(formulario);
 
-            // Obtén las fechas de inicio y fin
-            const start = new Date(datos.get('start'));
-            const end = new Date(datos.get('end'));
+    // Obtén las fechas de inicio y fin
+    const start = new Date(datos.get('start'));
+    const end = new Date(datos.get('end'));
 
-            // Si start y end son iguales, agrega un minuto a end
-            if (start.getTime() === end.getTime()) {
-                end.setMinutes(end.getMinutes() + 1); // Agrega 1 minuto a end
-            }
+    // Si start y end son iguales, agrega un minuto a end
+    if (start.getTime() === end.getTime()) {
+        end.setMinutes(end.getMinutes() + 1); // Agrega 1 minuto a end
+    }
 
-            // Formatea las fechas en formato local (YYYY-MM-DDTHH:MM)
-            const formatDate = (date) => {
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                const hours = String(date.getHours()).padStart(2, '0');
-                const minutes = String(date.getMinutes()).padStart(2, '0');
-                return `${year}-${month}-${day}T${hours}:${minutes}`;
-            };
+    // Formatea las fechas en formato local (YYYY-MM-DDTHH:MM)
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
 
-            // Actualiza los valores en el FormData
-            datos.set('start', formatDate(start));
-            datos.set('end', formatDate(end));
+    // Actualiza los valores en el FormData
+    datos.set('start', formatDate(start));
+    datos.set('end', formatDate(end));
 
-            console.log('Start:', datos.get('start'));
-            console.log('End:', datos.get('end'));
+    console.log('Start:', datos.get('start'));
+    console.log('End:', datos.get('end'));
 
-            axios.post('http://127.0.0.1:8000/evento/agregar', datos)
-                .then(function (response) {
-                    $('#evento').modal('hide');
-                    calendar.refetchEvents();
-                })
-                .catch(function (error) {
-                    console.error(error);
-                    if (error.response) {
-                        console.error('Errores de validación:', error.response.data.errors);
-                        alert('Error: ' + JSON.stringify(error.response.data.errors));
-                    } else {
-                        alert('Error al guardar el evento.');
+    axios.post('http://127.0.0.1:8000/evento/agregar', datos)
+        .then(function (response) {
+            // Éxito: El evento se creó correctamente
+            console.log('Evento creado:', response.data);
+            alert('Evento creado correctamente'); // Mensaje de éxito
+            $('#evento').modal('hide'); // Cierra el modal
+            calendar.refetchEvents(); // Actualiza el calendario
+        })
+        .catch(function (error) {
+            if (error.response) {
+                if (error.response.status === 422) {
+                    // Errores de validación
+                    const errors = error.response.data.errors;
+                    let errorMessage = 'Errores de validación:\n';
+                    for (const field in errors) {
+                        errorMessage += `${errors[field][0]}\n`; // Agrega cada error al mensaje
                     }
-                });
+                    alert(errorMessage); // Muestra los errores de validación
+                } else {
+                    // Otros errores del servidor
+                    console.error('Error del servidor:', error.response.data);
+                    alert('Error del servidor: ' + error.response.data.message);
+                }
+            } else {
+                // Errores de red o de Axios
+                console.error('Error de red o de Axios:', error.message);
+                alert('Error de red o de Axios: ' + error.message);
+            }
         });
+});
 
         document.getElementById('btnEliminar').addEventListener('click', function () {
             const eventoId = formulario.id.value;

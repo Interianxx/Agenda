@@ -6,8 +6,18 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 Route::get('/', _SiteController::class)->name('index');
+
+
+
+Route::get('/test-mail', function () {
+    Mail::to('al070687@uacam.com.mx')->send(new TestMail());
+    return 'Correo enviado';
+});
+
 
 /* Rutas del sistema de Agenda*/
 Route::middleware('auth')->group(function () {

@@ -15,4 +15,5 @@ class Evento extends Model
         'start' => 'required|date',
         'end' => 'nullable|date|after_or_equal:start'
     ];
+    
 }

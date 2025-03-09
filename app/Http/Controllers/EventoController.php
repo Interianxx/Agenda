@@ -32,18 +32,34 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         try {
+            // Validar los datos del formulario
             $request->validate([
                 'title' => 'required|string|max:255',
                 'start' => 'required|date',
                 'end' => 'required|date|after:start',
                 'descripcion' => 'nullable|string',
             ]);
-    
+
+            // Crear el evento
             $evento = Evento::create($request->all());
-    
-            return response()->json($evento, 201); // Devuelve el evento creado en formato JSON
+
+            // Devolver el evento creado en formato JSON
+            return response()->json([
+                'message' => 'Evento creado correctamente',
+                'evento' => $evento
+            ], 201); // Código 201: Created
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Devolver errores de validación en formato JSON
+            return response()->json([
+                'message' => 'Errores de validación',
+                'errors' => $e->errors()
+            ], 422); // Código 422: Unprocessable Entity
         } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500); // Devuelve el error en formato JSON
+            // Devolver el error en formato JSON
+            return response()->json([
+                'message' => 'Error al crear el evento',
+                'error' => $e->getMessage()
+            ], 500); // Código 500: Internal Server Error
         }
     }
 
