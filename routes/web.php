@@ -31,7 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('/contacts', ContactController::class)->names('contacts');
     Route::resource('/evento', EventoController::class)->names('evento');
 
-
 });
 
 Route::middleware('auth')->group(function () {

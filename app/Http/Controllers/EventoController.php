@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use Carbon\Carbon;
 use Event;
 use Illuminate\Http\Request;
 
@@ -30,16 +31,20 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'start' => 'required|date',
-            'end' => 'required|date|after:start',
-            'descripcion' => 'nullable|string',
-        ]);
-
-        $evento = Evento::create($request->all());
-
-        return response()->json($evento, 201); // Devuelve el evento creado en formato JSON
+        try {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'start' => 'required|date',
+                'end' => 'required|date|after:start',
+                'descripcion' => 'nullable|string',
+            ]);
+    
+            $evento = Evento::create($request->all());
+    
+            return response()->json($evento, 201); // Devuelve el evento creado en formato JSON
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500); // Devuelve el error en formato JSON
+        }
     }
 
     /**
@@ -63,12 +68,22 @@ class EventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
+
     public function edit($id)
     {
         $evento = Evento::find($id);
+
+        if (!$evento) {
+            return response()->json(['error' => 'Evento no encontrado'], 404);
+        }
+
+        // Formatea las fechas usando Carbon::parse
+        $evento->start = Carbon::parse($evento->start)->format('Y-m-d\TH:i');
+        $evento->end = Carbon::parse($evento->end)->format('Y-m-d\TH:i');
+
         return response()->json($evento); // Devuelve el evento en formato JSON
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -82,9 +97,14 @@ class EventoController extends Controller
         ]);
 
         $evento = Evento::find($id);
+
+        if (!$evento) {
+            return response()->json(['error' => 'Evento no encontrado'], 404);
+        }
+
         $evento->update($request->all());
 
-        return response()->json($evento); // Devuelve el evento actualizado en formato JSON
+        return response()->json(['message' => 'Evento actualizado correctamente', 'evento' => $evento]);
     }
 
     /**
