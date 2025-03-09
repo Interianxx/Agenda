@@ -22,6 +22,8 @@ Ejecuta el siguiente comando en tu terminal:
 git clone https://github.com/Interianxx/Agenda.git
 ```
 
-2️⃣ Navegar a la carpeta del proyecto
+### 2️⃣ Navegar a la carpeta del proyecto
 
-
+```bash
+cd Agenda
+```
