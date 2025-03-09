@@ -45,3 +45,17 @@ cd Agenda
 ```bash
 composer install
 ```
+
+### 4️⃣ Configurar el archivo `.env`
+
+Copia el archivo `.env.example` y renómbralo a `.env`. Luego, edita el archivo `.env` para configurar las variables de entorno, como la conexión a la base de datos:
+
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_base_de_datos
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+
+```
