@@ -112,115 +112,26 @@ Al ejecutar las migraciones y los seeders (`php artisan migrate --seed`), se cre
 
 ## 💡 Uso
 
-A continuación, se describen los pasos para utilizar las funcionalidades principales del proyecto:
+### Crear un evento
+Para crear un evento, haz clic en el botón **"Crear evento"** y completa el formulario con el título, la fecha de inicio y fin, así como una descripción (opcional). Luego, haz clic en **"Guardar"** para añadir el evento al calendario.
 
----
+### Editar un evento
+Para editar un evento, simplemente haz clic sobre él en el calendario. Modifica los detalles como el título, las fechas y la descripción, y haz clic en **"Guardar"** para aplicar los cambios.
 
-### 1️⃣ Crear un evento
+### Eliminar un evento
+Haz clic sobre el evento que deseas eliminar en el calendario y confirma la eliminación cuando se te solicite. El evento se eliminará de forma permanente.
 
-- Haz clic en el botón **"Crear evento"**.
-- Completa el formulario con los siguientes detalles del evento:
-    - **Título**: Nombre del evento.
-    - **Fecha de inicio**: Fecha y hora en que comienza el evento.
-    - **Fecha de fin**: Fecha y hora en que termina el evento.
-    - **Descripción**: Información adicional sobre el evento (opcional).
-- Haz clic en **"Guardar"** para crear el evento.
+### Visualizar eventos
+Todos los eventos creados se muestran en el calendario. Puedes hacer clic en cualquiera de ellos para ver los detalles completos.
 
----
+### Navegar por el calendario
+Usa las flechas de navegación para moverte entre los meses o selecciona un día específico para ver los eventos programados en esa fecha.
 
-### 2️⃣ Editar un evento
+### Crear y gestionar categorías
+Puedes crear nuevas categorías haciendo clic en **"Crear categoría"**, completando los detalles del nombre y descripción. Para editar o eliminar una categoría, simplemente selecciona la categoría y modifica o elimina la información.
 
-- Haz clic en el evento que deseas editar en el calendario.
-- Modifica los detalles del evento en el formulario:
-    - Cambia el título, la fecha de inicio, la fecha de fin o la descripción.
-- Haz clic en **"Guardar"** para aplicar los cambios.
+### Gestionar contactos
+Para agregar un contacto, haz clic en **"Crear contacto"** e ingresa los detalles necesarios, como nombre, correo electrónico, teléfono, dirección y categoría. Los contactos pueden ser editados o eliminados de la misma manera, seleccionándolos en la lista y aplicando los cambios necesarios.
 
----
-
-### 3️⃣ Eliminar un evento
-
-- Haz clic en el evento que deseas eliminar en el calendario.
-- Confirma la eliminación cuando se te solicite.
-- El evento se eliminará permanentemente del calendario.
-
----
-
-### 4️⃣ Visualizar eventos
-
-- Todos los eventos creados se mostrarán en el calendario.
-- Puedes hacer clic en cualquier evento para ver sus detalles completos.
-
----
-
-### 5️⃣ Navegar por el calendario
-
-- Usa las flechas de navegación para moverte entre meses.
-- Haz clic en un día específico para ver los eventos programados en esa fecha.
-
----
-
-### 6️⃣ Crear una categoría
-
-- Haz clic en el botón **"Crear categoría"**.
-- Completa el formulario con los siguientes detalles:
-    - **Nombre**: Nombre de la categoría.
-    - **Descripción**: Información adicional sobre la categoría (opcional).
-- Haz clic en **"Guardar"** para crear la categoría.
-
----
-
-### 7️⃣ Editar una categoría
-
-- Haz clic en la categoría que deseas editar.
-- Modifica los detalles de la categoría en el formulario:
-    - Cambia el nombre o la descripción.
-- Haz clic en **"Guardar"** para aplicar los cambios.
-
----
-
-### 8️⃣ Eliminar una categoría
-
-- Haz clic en la categoría que deseas eliminar.
-- Confirma la eliminación cuando se te solicite.
-- La categoría se eliminará permanentemente.
-
----
-
-### 9️⃣ Crear un contacto
-
-- Haz clic en el botón **"Crear contacto"**.
-- Completa el formulario con los siguientes detalles:
-    - **Nombre**: Nombre del contacto.
-    - **Email**: Correo electrónico del contacto.
-    - **Teléfono**: Número de teléfono del contacto.
-    - **Dirección**: Dirección del contacto.
-    - **Categoría**: Selecciona una categoría existente para el contacto.
-- Haz clic en **"Guardar"** para crear el contacto.
-
----
-
-### 🔟 Editar un contacto
-
-- Haz clic en el contacto que deseas editar.
-- Modifica los detalles del contacto en el formulario:
-    - Cambia el nombre, email, teléfono, dirección o categoría.
-- Haz clic en **"Guardar"** para aplicar los cambios.
-
----
-
-### 1️⃣1️⃣ Eliminar un contacto
-
-- Haz clic en el contacto que deseas eliminar.
-- Confirma la eliminación cuando se te solicite.
-- El contacto se eliminará permanentemente.
-
----
-
-### 1️⃣2️⃣ Visualizar contactos
-
-- Todos los contactos creados se mostrarán en la lista de contactos.
-- Puedes hacer clic en cualquier contacto para ver sus detalles completos.
-
----
 
 
