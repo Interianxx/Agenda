@@ -79,3 +79,13 @@ El proyecto usa Node.js para compilar assets (como CSS o JavaScript), para las d
 npm install
 npm run dev
 ```
+
+### 8️⃣ Ejecutar el proyecto
+Una vez configurado, inicia el servidor de desarrollo de Laravel:
+
+```bash
+php artisan serve
+```
+
+El proyecto estara disponible en: 
+[php artisan serve](http://127.0.0.1:8000)
