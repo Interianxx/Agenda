@@ -29,25 +29,21 @@ Sigue estos pasos para clonar y configurar el proyecto en tu entorno local:
 
 ### 1️⃣ Clonar el repositorio
 Ejecuta el siguiente comando en tu terminal:
-
 ```bash
 git clone https://github.com/Interianxx/Agenda.git
 ```
 
 ### 2️⃣ Navegar a la carpeta del proyecto
-
 ```bash
 cd Agenda
 ```
 
 ### 3️⃣ Instalar las dependencias con Composer
-
 ```bash
 composer install
 ```
 
 ### 4️⃣ Configurar el archivo `.env`
-
 Copia el archivo `.env.example` y renómbralo a `.env`. Luego, edita el archivo `.env` para configurar las variables de entorno, como la conexión a la base de datos:
 
 ```bash
@@ -58,4 +54,28 @@ DB_DATABASE=nombre_de_tu_base_de_datos
 DB_USERNAME=tu_usuario
 DB_PASSWORD=tu_contraseña
 
+```
+
+### 5️⃣ Generar la clave de aplicación
+Ejecuta el siguiente comando para generar una clave de aplicación:
+
+```bash
+php artisan key:generate
+
+```
+
+### 6️⃣ Generar la clave de aplicación
+Crea las tablas en la base de datos ejecutando las migraciones:
+
+```bash
+php artisan migrate
+
+```
+
+### 7️⃣ Instalar dependencias de JavaScript
+El proyecto usa Node.js para compilar assets (como CSS o JavaScript), para las dependencias y compilarlas:
+
+```bash
+npm install
+npm run dev
 ```
