@@ -144,4 +144,9 @@ Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
 ---
 
+## 📝 Notas adicionales
+
+Documentacion Tecnica: https://docs.google.com/document/d/1uCUN15h_a27egQzZ4Og-VgUFjkUhaxZrPLefDkJm6JY/edit?tab=t.0
+
+
 
