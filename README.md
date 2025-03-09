@@ -133,5 +133,15 @@ Puedes crear nuevas categorías haciendo clic en **"Crear categoría"**, complet
 ### Gestionar contactos
 Para agregar un contacto, haz clic en **"Crear contacto"** e ingresa los detalles necesarios, como nombre, correo electrónico, teléfono, dirección y categoría. Los contactos pueden ser editados o eliminados de la misma manera, seleccionándolos en la lista y aplicando los cambios necesarios.
 
+## 📞 Contacto
+
+Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
+
+- **Nombre**: [Jose Alejandro Interian Pech, Carla Escalante, Jose Ramirez]
+- **Email**: [al070687@uacam.mx, al064216@uacam.mx, al064255@uacam.mx]]
+
+¡Gracias por usar este proyecto! 😊
+
+---
 
 
