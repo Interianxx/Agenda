@@ -18,12 +18,9 @@ Sigue estos pasos para clonar y configurar el proyecto en tu entorno local:
 ### 1️⃣ Clonar el repositorio
 Ejecuta el siguiente comando en tu terminal:
 
-```bash
+``bash
 git clone https://github.com/Interianxx/Agenda.git
 
-### 2️⃣ Navegar a la carpeta del proyecto
-```bash
-cd Agenda
+2️⃣ Navegar a la carpeta del proyecto
 
-```bash
-composer install
+
